@@ -14,6 +14,14 @@ let slidesCount = slides.length;
 let interval = null;
 let isPlaying = true;
 
+const FA_PAUSE = '<i class="fas fa-pause-circle">';
+const FA_PLAY = '<i class="fas fa-play-circle">';
+const CODE_SPACE = 'Space';
+const CODE_LEFT_ARROW = 'ArrowLeft';
+const CODE_RIGHT_ARROW = 'ArrowRight';
+
+
+
 
 function gotoSlide(n){
   slides[currentSlide].classList.toggle('active');
@@ -43,14 +51,14 @@ function pause(){
 if(isPlaying){
   clearInterval(interval);
   isPlaying = false;
-  pauseButton.innerHTML = 'Play'
+  pauseButton.innerHTML = FA_PLAY
 }  
 }
 
 function play(){
   interval = setInterval(nextSlide, 1000);
   isPlaying = true;
-  pauseButton.innerHTML = 'Pause'
+  pauseButton.innerHTML = FA_PAUSE
 
 }
 
@@ -84,10 +92,20 @@ function indicate(e){
   
 }
 
+function pressKey(e){
+  if(e.code === CODE_LEFT_ARROW) prev();
+  if(e.code === CODE_RIGHT_ARROW) next();
+  if(e.code === CODE_SPACE) pausePlay();
+  console.log(e)
+
+
+}
+
 pauseButton.addEventListener('click', pausePlay);
 prevButton.addEventListener('click', prev);
 nextButton.addEventListener('click', next)
 indicatorsContainer.addEventListener('click', indicate);
+document.addEventListener('keydown', pressKey)
 
 
 
