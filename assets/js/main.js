@@ -2,6 +2,7 @@
 
 
 const slides = document.querySelectorAll('.slide');
+const indicatorsContainer = document.querySelector('#indicators-container')
 const indicators = document.querySelectorAll('.indicator');
 const pauseButton = document.querySelector('#pause-btn');
 const prevButton = document.querySelector('#prev-btn');
@@ -39,14 +40,13 @@ function prevSlide(){
 function pause(){
 if(isPlaying){
   clearInterval(interval);
- 
   isPlaying = false;
-
   pauseButton.innerHTML = 'Play'
 }  
 }
+
 function play(){
-  nterval = setInterval(nextSlide,1000);
+  interval = setInterval(nextSlide, 1000);
   isPlaying = true;
   pauseButton.innerHTML = 'Pause'
 
@@ -55,10 +55,10 @@ function play(){
 function pausePlay(){
   if(isPlaying){
     pause();  
-    console.log(pause)
+    console.log(isPlaying)
   }else{
     play();
-    console.log(play)
+    console.log(isPlaying)
   }
 }
 
@@ -71,11 +71,20 @@ function prev(){
   prevSlide();
 }
 
-
+function indicate(e){
+  const target = e.target;
+  if(target.classList.contains('indicator')){
+    console.log(target)
+  }
+  
+}
 
 pauseButton.addEventListener('click', pausePlay);
 prevButton.addEventListener('click', prev);
 nextButton.addEventListener('click', next)
+indicatorsContainer.addEventListener('click', indicate);
+
+
 
 
 interval = setInterval(nextSlide, 1000)

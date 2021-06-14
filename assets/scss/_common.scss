@@ -72,3 +72,38 @@ just for appearance; change whatever you want
 .slide:nth-of-type(5) {
   background: purple;
 }
+
+
+.indicators,
+.controls{
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+}
+
+.indicator,
+.control{
+  display: block;
+  background-color: #ccc;
+  user-select: none;
+  cursor: pointer;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.indicator.active{
+  background-color: red;
+
+}
+
+.indicators{
+  list-style: none;
+  padding: 0 ;
+  margin: 0;
+  margin-top: -60px;
+  margin-left: 180px;
+}
