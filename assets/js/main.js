@@ -1,6 +1,6 @@
 
 
-
+const container = document.querySelector('#carousel');
 const slides = document.querySelectorAll('.slide');
 const indicatorsContainer = document.querySelector('#indicators-container')
 const indicators = document.querySelectorAll('.indicator');
@@ -11,8 +11,13 @@ const nextButton = document.querySelector('#next-btn');
 
 let currentSlide = 0;
 let slidesCount = slides.length;
-let interval = null;
+let interval = 1000;
+let timerID = null;
 let isPlaying = true;
+let swipeStartX = null;
+let swipeEndX = null;
+
+
 
 const FA_PAUSE = '<i class="fas fa-pause-circle">';
 const FA_PLAY = '<i class="fas fa-play-circle">';
@@ -25,12 +30,11 @@ const CODE_RIGHT_ARROW = 'ArrowRight';
 
 function gotoSlide(n){
   slides[currentSlide].classList.toggle('active');
-  console.log('ss'+ currentSlide);
-
   indicators[currentSlide].classList.toggle('active');
   currentSlide = (n + slidesCount) % slidesCount;
-  indicators[currentSlide].classList.toggle('active');
   slides[currentSlide].classList.toggle('active');
+  indicators[currentSlide].classList.toggle('active');
+  
 
 }
 
@@ -49,14 +53,14 @@ function prevSlide(){
 
 function pause(){
 if(isPlaying){
-  clearInterval(interval);
+  clearInterval(timerID);
   isPlaying = false;
   pauseButton.innerHTML = FA_PLAY
 }  
 }
 
 function play(){
-  interval = setInterval(nextSlide, 1000);
+  timerID = setInterval(nextSlide, interval);
   isPlaying = true;
   pauseButton.innerHTML = FA_PAUSE
 
@@ -101,16 +105,30 @@ function pressKey(e){
 
 }
 
+
+function swipeStart(e){
+  swipeStartX = e.changedTouches[0].pageX;
+}
+function swipeEnd(e){
+  swipeEndX = e.changedTouches[0].pageX;
+  if(swipeStartX - swipeEndX > 0 ) next();
+  if(swipeStartX - swipeEndX < 0 ) prev();
+  
+}
+
+
 pauseButton.addEventListener('click', pausePlay);
 prevButton.addEventListener('click', prev);
 nextButton.addEventListener('click', next)
 indicatorsContainer.addEventListener('click', indicate);
-document.addEventListener('keydown', pressKey)
+document.addEventListener('keydown', pressKey);
+container.addEventListener('touchstart', swipeStart);
+container.addEventListener('touchend', swipeEnd);
 
 
 
 
-interval = setInterval(nextSlide, 1000)
+timerID = setInterval(nextSlide, interval)
 
 
 
