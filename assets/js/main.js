@@ -2,9 +2,9 @@
 
 
 const slides = document.querySelectorAll('.slide');
-const pauseButton = document.querySelector('#pause');
-const prevButton = document.querySelector('#prev');
-const nextButton = document.querySelector('#next');
+const pauseButton = document.querySelector('#pause-btn');
+const prevButton = document.querySelector('#prev-btn');
+const nextButton = document.querySelector('#next-btn');
 
 
 let currentSlide = 0;
@@ -12,26 +12,63 @@ let slidesCount = slides.length;
 let interval = null;
 let isPlaying = true;
 
-function nextSlide() {
+
+function gotoSlide(n){
   slides[currentSlide].classList.toggle('active');
-  currentSlide = (currentSlide + 1) % slidesCount;
+  currentSlide = (n + slidesCount) % slidesCount;
   slides[currentSlide].classList.toggle('active');
+
 }
+
+
+function nextSlide() {
+  gotoSlide(currentSlide + 1);
+  
+}
+
+function prevSlide(){
+  gotoSlide(currentSlide - 1);
+
+}
+
 
 
 function pause(){
-  if(isPlaying){
-    clearInterval(interval);
-    isPlaying = false;
-    pauseButton.innerHTML = 'Play'
-  }else{
-    interval = setInterval(nextSlide,1000);
-    isPlaying = true;
-    pauseButton.innerHTML = 'Pause'
-  }
+if(isPlaying){
+  clearInterval(interval);
+  isPlaying = false;
+  pauseButton.innerHTML = 'Play'
+}  
+}
+function play(){
+  nterval = setInterval(nextSlide,1000);
+  isPlaying = true;
+  pauseButton.innerHTML = 'Pause'
 
 }
-pauseButton.addEventListener('click', pause)
+
+function pausePlay(){
+  if(isPlaying){
+    pause();
+  }else{
+    play();
+  }
+}
+
+function next(){
+  pause();
+  nextSlide();
+}
+function prev(){
+  pause();
+  prevSlide();
+}
+
+
+
+pauseButton.addEventListener('click', pausePlay);
+prevButton.addEventListener('click', prev);
+nextButton.addEventListener('click', next)
 
 
 interval = setInterval(nextSlide, 1000)
