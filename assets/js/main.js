@@ -2,6 +2,7 @@
 
 
 const slides = document.querySelectorAll('.slide');
+const indicators = document.querySelectorAll('.indicator');
 const pauseButton = document.querySelector('#pause-btn');
 const prevButton = document.querySelector('#prev-btn');
 const nextButton = document.querySelector('#next-btn');
@@ -15,7 +16,9 @@ let isPlaying = true;
 
 function gotoSlide(n){
   slides[currentSlide].classList.toggle('active');
+  indicators[currentSlide].classList.toggle('active');
   currentSlide = (n + slidesCount) % slidesCount;
+  indicators[currentSlide].classList.toggle('active');
   slides[currentSlide].classList.toggle('active');
 
 }
@@ -36,7 +39,9 @@ function prevSlide(){
 function pause(){
 if(isPlaying){
   clearInterval(interval);
+ 
   isPlaying = false;
+
   pauseButton.innerHTML = 'Play'
 }  
 }
@@ -49,9 +54,11 @@ function play(){
 
 function pausePlay(){
   if(isPlaying){
-    pause();
+    pause();  
+    console.log(pause)
   }else{
     play();
+    console.log(play)
   }
 }
 
