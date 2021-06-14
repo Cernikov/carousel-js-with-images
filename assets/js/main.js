@@ -17,6 +17,8 @@ let isPlaying = true;
 
 function gotoSlide(n){
   slides[currentSlide].classList.toggle('active');
+  console.log('ss'+ currentSlide);
+
   indicators[currentSlide].classList.toggle('active');
   currentSlide = (n + slidesCount) % slidesCount;
   indicators[currentSlide].classList.toggle('active');
@@ -73,8 +75,11 @@ function prev(){
 
 function indicate(e){
   const target = e.target;
-  if(target.classList.contains('indicator')){
-    console.log(target)
+  if(target && target.classList.contains('indicator')){
+    console.log(target);
+    console.log(target.dataset.slideTo);
+    pause();
+    gotoSlide(+target.dataset.slideTo);
   }
   
 }
