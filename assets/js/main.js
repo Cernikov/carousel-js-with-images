@@ -110,19 +110,24 @@
     if(swipeStartX - swipeEndX < -100 ) prev(); 
   }
   
-  
-  pauseButton.addEventListener('click', pausePlay);
-  prevButton.addEventListener('click', prev);
-  nextButton.addEventListener('click', next)
-  indicatorsContainer.addEventListener('click', indicate);
-  document.addEventListener('keydown', pressKey);
-  container.addEventListener('touchstart', swipeStart);
-  container.addEventListener('touchend', swipeEnd);
-  
-  
-  
-  
-  timerID = setInterval(nextSlide, interval)
+
+
+  function initListeners(){
+    pauseButton.addEventListener('click', pausePlay);
+    prevButton.addEventListener('click', prev);
+    nextButton.addEventListener('click', next)
+    indicatorsContainer.addEventListener('click', indicate);
+    document.addEventListener('keydown', pressKey);
+    container.addEventListener('touchstart', swipeStart);
+    container.addEventListener('touchend', swipeEnd);
+  }
+
+  function init(){
+    initListeners();
+    timerID = setInterval(nextSlide, interval)
+  };
+init();
+
 
 }(500));
 
