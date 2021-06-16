@@ -12,7 +12,7 @@ function Carousel(){
   
   this.currentSlide = 0;
   this.slidesCount = this.slides.length;
-  this.interval = 2000;
+  this.interval = 1000;
   this.timerID = null;
   this.isPlaying = true;
   this.swipeStartX = null;
@@ -36,11 +36,9 @@ Carousel.prototype = {
         this.indicators[this.currentSlide].classList.toggle('active');
       },
       nextSlide() {
-        // console.log(this);
-            this.gotoSlide(this.currentSlide + 1); 
-            console.log(this.gotoSlide);
+            this.gotoSlide(this.currentSlide + 1);
           },
-          
+
       prevSlide(){
             this.gotoSlide(this.currentSlide - 1);
           },
@@ -50,19 +48,19 @@ Carousel.prototype = {
             clearInterval(this.timerID);
             this.isPlaying = false;
             this.pauseButton.innerHTML = this.FA_PLAY
-          }  
+          }
           },
-          
+
           play(){
             this.timerID = setInterval(this.nextSlide.bind(this), this.interval);
             this.isPlaying = true;
             this.pauseButton.innerHTML = this.FA_PAUSE
           },
-          
+
           pausePlay(){
             if(this.isPlaying){
-              this.pause();  
-              
+              this.pause();
+
             }else{
               this.play();
               
