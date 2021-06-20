@@ -104,6 +104,8 @@ _initListeners(){
   this.nextButton.addEventListener('click', this.next.bind(this))
   this.indicatorsContainer.addEventListener('click', this._indicate.bind(this));
   document.addEventListener('keydown', this.pressKey.bind(this));
+  this.container.addEventListener('mouseenter', this._pause.bind(this));
+  this.container.addEventListener('mouseleave', this._play.bind(this));
 }
 
 _gotoSlide(n){
