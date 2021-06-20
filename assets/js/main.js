@@ -3,5 +3,11 @@
 // carousel.init();
 // // carousel.play()
 
-const carousel = new SwipeCarousel('#myCarouselID', '.myCustomClass');
+const carousel = new SwipeCarousel({
+  containerID: '#myCarouselID',
+ 
+});
 carousel.init();
+
+// const carousel = new SwipeCarousel();
+// carousel.init();

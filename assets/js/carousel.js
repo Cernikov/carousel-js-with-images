@@ -1,11 +1,37 @@
 
 
 class Carousel{
-  constructor(containerID = '#carousel', slideID = '.slide'){
-  this.container = document.querySelector(containerID);
-  this.slides = document.querySelectorAll(slideID);
+  constructor(params) {
    
-  this.interval = 1000;
+  let settings = this._initConfig(params);
+
+  console.log(settings);
+  this.container = document.querySelector(settings.containerID);
+  this.slides = document.querySelectorAll(settings.slideID);
+   
+  this.interval = settings.interval;
+  console.log(settings.interval)
+}
+
+_initConfig(objectParams){
+const defaultSettings = {
+   
+    containerID: '#carousel',
+    slideID: '.slide',
+    interval: 5000,
+    isPlaying: true
+}
+
+if(typeof objectParams !== 'undefined'){
+defaultSettings.containerID = objectParams.containerID || defaultSettings.containerID;
+defaultSettings.slideID = objectParams.slideID || defaultSettings.slideID;
+defaultSettings.interval = objectParams.interval || defaultSettings.interval;
+defaultSettings.isPlaying = objectParams.isPlaying || defaultSettings.isPlaying
+}
+
+console.log(defaultSettings);
+return defaultSettings;
+
 }
 
 _initProps(){
