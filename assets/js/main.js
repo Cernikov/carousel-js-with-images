@@ -1,4 +1,7 @@
-const carousel = new(Carousel);
+const carousel = new Carousel('#myCarouselID', '.myCustomClass');
 console.log(carousel)
 carousel.init();
-carousel.pause()
+// carousel.play()
+
+// const carousel = new SwipeCarousel('#myCarouselID', '.myCustomClass');
+// carousel.init();
