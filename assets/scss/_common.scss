@@ -107,3 +107,14 @@ just for appearance; change whatever you want
   margin-top: -60px;
   margin-left: 180px;
 }
+
+.control-pause{
+  position: relative;
+}
+.control-pause span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
