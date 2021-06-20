@@ -1,6 +1,6 @@
 
 
-class swipeCarousel extends Carousel{
+class SwipeCarousel extends Carousel{
   _initListeners(){
     super._initListeners();
     this.container.addEventListener('touchstart', this._swipeStart.bind(this));
@@ -16,4 +16,4 @@ class swipeCarousel extends Carousel{
     if(this.swipeStartX - this.swipeEndX > 100 ) this.next();
     if(this.swipeStartX - this.swipeEndX < -100 ) this.prev(); 
   }
-}
+};
