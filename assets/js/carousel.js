@@ -59,11 +59,14 @@ _initControls(){
   
   </span>`;
   const PREV = `<span id="prev-btn" class="control control-prev" >${this.FA_PREV}</span>`;
+
+
   const NEXT = `<span id="next-btn" class="control control-next" >${this.FA_NEXT}</span>`;
 
   controls.setAttribute('class', 'controls');
-  controls.innerHTML = PAUSE + PREV + NEXT;
+  controls.innerHTML =   PREV + PAUSE + NEXT;
   this.container.appendChild(controls);
+  
 
   this.pauseButton = document.querySelector('#pause-btn');
   this.prevButton = document.querySelector('#prev-btn');
@@ -104,8 +107,8 @@ _initListeners(){
   this.nextButton.addEventListener('click', this.next.bind(this))
   this.indicatorsContainer.addEventListener('click', this._indicate.bind(this));
   document.addEventListener('keydown', this.pressKey.bind(this));
-  this.container.addEventListener('mouseenter', this._pause.bind(this));
-  this.container.addEventListener('mouseleave', this._play.bind(this));
+  // this.container.addEventListener('mouseenter', this._pause.bind(this));
+  // this.container.addEventListener('mouseleave', this._play.bind(this));
 }
 
 _gotoSlide(n){
@@ -186,8 +189,6 @@ _gotoSlide(n){
         this._initListeners();
 
         if(this.isPlaying) this.timerID = setInterval(()=>this._gotoNext(), this.interval)
-        
-        
         }
 };
 
