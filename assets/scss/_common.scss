@@ -81,11 +81,15 @@ just for appearance; change whatever you want
   gap: 10px;
   padding: 20px;
 }
+.controls{
+  justify-content: center;
+}
+
 
 .indicator,
 .control{
   display: block;
-  background-color: #ccc;
+ 
   user-select: none;
   cursor: pointer;
   height: 40px;
@@ -98,27 +102,50 @@ just for appearance; change whatever you want
 
 .indicator.active{
   background-color: rgb(0, 0, 0);
-
+ 
 }
 
 .indicators{
-  position: absolute;
+  position: relative;
+justify-content: center;
+top: -90px;
 
-
-
-
-
+z-index: 10;
 
   list-style: none;
   padding: 0 ;
   margin: 0;
-  margin-top: -60px;
-  margin-left: 180px;
+  // margin-top: -60px;
+  // margin-left: 180px;
+}
+.indicator{
+  border-radius: 50%;
+  height: 20px;
+  min-width: 20px;
+  background-color: #ccc;
+}
+
+
+.controls{
+  position: relative;
+  z-index: 10;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: space-between;
+ 
 }
 
 .control-pause{
-  position: relative;
+ font-size: 40px;
+  opacity: .5;
 }
+.control-pause:hover{
+  opacity: 1;
+}
+
 .control-pause span{
   position: absolute;
   top: 50%;
@@ -127,4 +154,10 @@ just for appearance; change whatever you want
   opacity: 0;
 }
 
+// .control-prev{
+//  position: relative;
+  
+//   left: -20px;
+//   z-index: 20;
+// }
 

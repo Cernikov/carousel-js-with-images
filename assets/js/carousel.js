@@ -7,6 +7,7 @@ class Carousel{
 
   console.log(settings);
   this.container = document.querySelector(settings.containerID);
+  
   this.slides = document.querySelectorAll(settings.slideID);
    
   this.interval = settings.interval;
@@ -41,6 +42,7 @@ _initProps(){
   this.currentSlide = 0;
   this.slidesCount = this.slides.length;
 
+
   this.FA_PAUSE = '<i class="fas fa-pause-circle"></i>';
   this.FA_PLAY = '<i class="fas fa-play-circle"></i>';
   this.FA_PREV = `<i class="fas fa-angle-left"></i>`;
@@ -65,7 +67,16 @@ _initControls(){
 
   controls.setAttribute('class', 'controls');
   controls.innerHTML =   PREV + PAUSE + NEXT;
-  this.container.appendChild(controls);
+
+
+
+////
+this.slidesContainer = document.querySelector('.slides');
+console.log(this.slidesContainer);
+ this.slidesContainer.append(controls);
+
+
+  // this.container.appendChild(controls);
   
 
   this.pauseButton = document.querySelector('#pause-btn');

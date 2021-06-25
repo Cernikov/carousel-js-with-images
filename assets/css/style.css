@@ -432,10 +432,15 @@ just for appearance; change whatever you want
   padding: 20px;
 }
 
+.controls {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .indicator,
 .control {
   display: block;
-  background-color: #ccc;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -459,16 +464,46 @@ just for appearance; change whatever you want
 }
 
 .indicators {
-  position: absolute;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: -90px;
+  z-index: 10;
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: -60px;
-  margin-left: 180px;
+}
+
+.indicator {
+  border-radius: 50%;
+  height: 20px;
+  min-width: 20px;
+  background-color: #ccc;
+}
+
+.controls {
+  position: relative;
+  z-index: 10;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .control-pause {
-  position: relative;
+  font-size: 40px;
+  opacity: .5;
+}
+
+.control-pause:hover {
+  opacity: 1;
 }
 
 .control-pause span {
