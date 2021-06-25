@@ -371,7 +371,7 @@ body {
 .slides {
   position: relative;
   height: 600px;
-  width: 70%;
+  width: 80%;
   padding: 0px;
   margin: 5% auto 20px;
   list-style-type: none;
@@ -392,43 +392,9 @@ body {
   -webkit-transition: opacity 1s;
   -o-transition: opacity 1s;
   transition: opacity 1s;
-}
-
-.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
-.slide {
-  font-size: 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #333;
-  color: #fff;
-}
-
-.slide:nth-of-type(1) {
-  background: red;
-}
-
-.slide:nth-of-type(2) {
-  background: orange;
-}
-
-.slide:nth-of-type(3) {
-  background: green;
-}
-
-.slide:nth-of-type(4) {
-  background: blue;
-}
-
-.slide:nth-of-type(5) {
-  background: purple;
 }
 
 .slide img {
@@ -438,19 +404,24 @@ just for appearance; change whatever you want
   height: 100%;
 }
 
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
 .indicators,
 .controls {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
-  padding: 20px;
-}
-
-.controls {
+  padding: 0;
+  margin: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 10;
 }
 
 .indicator,
@@ -472,20 +443,9 @@ just for appearance; change whatever you want
           align-items: center;
 }
 
-.indicator.active {
-  background-color: #525050;
-}
-
 .indicators {
-  position: relative;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   top: -50px;
-  z-index: 10;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .indicator {
@@ -495,12 +455,12 @@ just for appearance; change whatever you want
   background-color: #ccc;
 }
 
+.indicator.active {
+  background-color: #525050;
+}
+
 .controls {
-  position: relative;
-  z-index: 10;
   list-style: none;
-  padding: 0;
-  margin: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
@@ -508,6 +468,12 @@ just for appearance; change whatever you want
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.control-pause {
+  font-size: 60px;
+  opacity: 0.1;
+  color: antiquewhite;
 }
 
 .control-pause span {
@@ -520,12 +486,6 @@ just for appearance; change whatever you want
   opacity: 0;
 }
 
-.control-pause {
-  font-size: 60px;
-  opacity: 0.1;
-  color: antiquewhite;
-}
-
 .control-pause:hover {
   opacity: 1;
 }
@@ -535,4 +495,32 @@ just for appearance; change whatever you want
   font-size: 50px;
   opacity: 0.5;
   color: antiquewhite;
+}
+
+@media (max-width: 1199.8px) and (min-width: 992px) {
+  .slides {
+    height: 550px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 991.8px) {
+  .slides {
+    height: 500px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 767.8px) {
+  .slides {
+    height: 420px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 575.8px) {
+  .slides {
+    height: 350px;
+    width: 80%;
+  }
 }

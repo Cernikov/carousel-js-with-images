@@ -14,20 +14,53 @@ html {
 essential styles:
 these make the slideshow work
 */
-body{
+body {
   background-image: url(/assets/img/texture.jpg);
-background-size: cover;
+  background-size: cover;
 }
+
 .slides {
   position: relative;
   height: 600px;
-  width: 70%;
+  width: 80%;
   padding: 0px;
   margin: 5% auto 20px;
   list-style-type: none;
   border: 1px solid gray;
   border-radius: 4px;
-box-shadow: 3px 5px 15px 0px rgba(0,0,0,0.32);
+  box-shadow: 3px 5px 15px 0px rgba(0, 0, 0, 0.32);
+}
+
+
+@include xl-lg {
+  .slides{
+    height: 550px;
+    width: 80%;
+   
+  }
+}
+
+@include lg {
+  .slides{
+    height: 500px;
+    width: 80%;
+   
+  }
+}
+
+@include md {
+  .slides{
+    height: 420px;
+    width: 80%;
+   
+  }
+}
+@include sm {
+  .slides{
+    height: 350px;
+    width: 80%;
+   
+  }
 }
 
 .slide {
@@ -39,126 +72,88 @@ box-shadow: 3px 5px 15px 0px rgba(0,0,0,0.32);
   opacity: 0;
   z-index: -99;
   transition: opacity 1s;
-}
-
-.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
-
-.slide {
-  font-size: 40px;
-  // padding: 40px;
   box-sizing: border-box;
   background: #333;
-  color: #fff;
+
+  & img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  &.active {
+    opacity: 1;
+    z-index: 2;
+  }
 }
 
-.slide:nth-of-type(1) {
-  background: red;
-}
 
-.slide:nth-of-type(2) {
-  background: orange;
-}
 
-.slide:nth-of-type(3) {
-  background: green;
-}
 
-.slide:nth-of-type(4) {
-  background: blue;
-}
-
-.slide:nth-of-type(5) {
-  background: purple;
-}
-
-.slide img{
-  object-fit: cover;
-        width: 100%;
-        height: 100%;
-}
 
 .indicators,
 .controls {
+  position: relative;
   display: flex;
   gap: 10px;
-  padding: 20px;
-}
-.controls {
+  padding: 0;
+  margin: 0;
   justify-content: center;
+  z-index: 10;
 }
 
 .indicator,
 .control {
   display: block;
-
   user-select: none;
   cursor: pointer;
- 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.indicator.active {
-  background-color: rgb(82, 80, 80);
-}
-
 .indicators {
-  position: relative;
-  justify-content: center;
   top: -50px;
-
-  z-index: 10;
-
   list-style: none;
-  padding: 0;
-  margin: 0;
-
-
-  // margin-top: -60px;
-  // margin-left: 180px;
 }
+
 .indicator {
   border-radius: 50%;
   height: 15px;
   min-width: 15px;
   background-color: #ccc;
+
+  &.active {
+    background-color: rgb(82, 80, 80);
+  }
 }
 
 .controls {
-  position: relative;
-  z-index: 10;
   list-style: none;
-  padding: 0;
-  margin: 0;
   top: 50%;
   transform: translateY(-50%);
   justify-content: space-between;
 }
 
-.control-pause span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
+
 .control-pause {
   font-size: 60px;
   opacity: 0.1;
   color: antiquewhite;
-}
 
-.control-pause:hover {
-  opacity: 1;
+  & span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
 }
 
 .control-prev,
