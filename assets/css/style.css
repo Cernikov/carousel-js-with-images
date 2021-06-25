@@ -366,9 +366,9 @@ these make the slideshow work
 .slides {
   position: relative;
   height: 600px;
-  width: 50%;
+  width: 70%;
   padding: 0px;
-  margin: 10% auto 20px;
+  margin: 5% auto 20px;
   list-style-type: none;
 }
 
@@ -446,8 +446,6 @@ just for appearance; change whatever you want
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
-  height: 40px;
-  min-width: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -460,7 +458,7 @@ just for appearance; change whatever you want
 }
 
 .indicator.active {
-  background-color: black;
+  background-color: #525050;
 }
 
 .indicators {
@@ -468,7 +466,7 @@ just for appearance; change whatever you want
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  top: -90px;
+  top: -50px;
   z-index: 10;
   list-style: none;
   padding: 0;
@@ -477,8 +475,8 @@ just for appearance; change whatever you want
 
 .indicator {
   border-radius: 50%;
-  height: 20px;
-  min-width: 20px;
+  height: 15px;
+  min-width: 15px;
   background-color: #ccc;
 }
 
@@ -497,15 +495,6 @@ just for appearance; change whatever you want
           justify-content: space-between;
 }
 
-.control-pause {
-  font-size: 40px;
-  opacity: .5;
-}
-
-.control-pause:hover {
-  opacity: 1;
-}
-
 .control-pause span {
   position: absolute;
   top: 50%;
@@ -514,4 +503,21 @@ just for appearance; change whatever you want
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   opacity: 0;
+}
+
+.control-pause {
+  font-size: 60px;
+  opacity: 0.1;
+  color: antiquewhite;
+}
+
+.control-pause:hover {
+  opacity: 1;
+}
+
+.control-prev,
+.control-next {
+  font-size: 50px;
+  opacity: 0.5;
+  color: antiquewhite;
 }
