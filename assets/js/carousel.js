@@ -71,9 +71,8 @@ _initControls(){
 
 
 ////
-this.slidesContainer = document.querySelector('.slides');
-console.log(this.slidesContainer);
- this.slidesContainer.append(controls);
+  this.slidesContainer = document.querySelector('.slides');
+  this.slidesContainer.append(controls);
 
 
   // this.container.appendChild(controls);
@@ -118,8 +117,8 @@ _initListeners(){
   this.nextButton.addEventListener('click', this.next.bind(this))
   this.indicatorsContainer.addEventListener('click', this._indicate.bind(this));
   document.addEventListener('keydown', this.pressKey.bind(this));
-  // this.container.addEventListener('mouseenter', this._pause.bind(this));
-  // this.container.addEventListener('mouseleave', this._play.bind(this));
+  this.container.addEventListener('mouseenter', this._pause.bind(this));
+  this.container.addEventListener('mouseleave', this._play.bind(this));
 }
 
 _gotoSlide(n){
