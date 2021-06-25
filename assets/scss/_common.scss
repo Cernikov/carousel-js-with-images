@@ -25,6 +25,9 @@ background-size: cover;
   padding: 0px;
   margin: 5% auto 20px;
   list-style-type: none;
+  border: 1px solid gray;
+  border-radius: 4px;
+box-shadow: 3px 5px 15px 0px rgba(0,0,0,0.32);
 }
 
 .slide {
@@ -50,7 +53,7 @@ just for appearance; change whatever you want
 
 .slide {
   font-size: 40px;
-  padding: 40px;
+  // padding: 40px;
   box-sizing: border-box;
   background: #333;
   color: #fff;
